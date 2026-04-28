@@ -9,7 +9,7 @@ nixPkgs = ["php84", "php84Extensions.sqlite3", "php84Packages.composer"]
 # Ensure bootstrap/cache directory exists and is writable
 cmds = [
     "mkdir -p /app/bootstrap/cache",
-    "chmod -R 755 /app/bootstrap/cache",
+    "chmod -R 777 /app/bootstrap/cache",
     "composer install --ignore-platform-reqs"
 ]
 
@@ -18,7 +18,9 @@ cmds = [
 cmds = [
     "composer install --no-dev --optimize-autoloader",
     "mkdir -p /app/storage/logs /app/storage/framework/cache /app/storage/framework/sessions /app/storage/framework/views",
-    "chmod -R 755 /app/storage",
+    "chmod -R 777 /app/storage",
+    "php artisan config:clear",
+    "php artisan cache:clear",
     "php artisan config:cache",
     "php artisan route:cache"
 ]
@@ -28,4 +30,4 @@ cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
 
 [deploy]
 healthcheckPath = "/"
-healthcheckTimeout = 30
+healthcheckTimeout = 60
