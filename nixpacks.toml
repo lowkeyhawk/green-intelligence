@@ -5,6 +5,14 @@
 # PHP version and extensions
 nixPkgs = ["php84", "php84Extensions.sqlite3", "php84Packages.composer"]
 
+[phases.install]
+# Ensure bootstrap/cache directory exists and is writable
+cmds = [
+    "mkdir -p /app/bootstrap/cache",
+    "chmod -R 755 /app/bootstrap/cache",
+    "composer install --ignore-platform-reqs"
+]
+
 [phases.build]
 # Install dependencies and cache Laravel configurations
 cmds = [
