@@ -17,6 +17,8 @@ cmds = [
 # Install dependencies and cache Laravel configurations
 cmds = [
     "composer install --no-dev --optimize-autoloader",
+    "mkdir -p /app/storage/logs /app/storage/framework/cache /app/storage/framework/sessions /app/storage/framework/views",
+    "chmod -R 755 /app/storage",
     "php artisan config:cache",
     "php artisan route:cache"
 ]
