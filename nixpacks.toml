@@ -3,7 +3,7 @@
 
 [phases.setup]
 # PHP version
-nixPkgs = ["php81", "php81Extensions.sqlite3", "php81Packages.composer"]
+nixPkgs = ["php82", "php82Extensions.sqlite3", "php82Packages.composer"]
 
 [phases.build]
 cmds = ["composer install --no-dev --optimize-autoloader"]
