@@ -1,0 +1,29 @@
+/vendor
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/.idea
+/.vscode
+*.log
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+# Laravel storage folders (keep .gitignore but ignore contents)
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+/storage/logs/*
+
+# Keep these folders but ignore their contents
+!storage/framework/cache/.gitignore
+!storage/framework/sessions/.gitignore
+!storage/framework/testing/.gitignore
+!storage/framework/views/.gitignore
+!storage/logs/.gitignore

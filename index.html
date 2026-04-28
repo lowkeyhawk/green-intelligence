@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Intelligence - AI for Agro-Industry & Eco-Tourism</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'green-primary': '#10b981',
+                        'green-dark': '#059669',
+                        'green-light': '#34d399',
+                        'earth-brown': '#92400e',
+                        'tech-blue': '#3b82f6',
+                        'nature-green': '#065f46',
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #065f46 0%, #10b981 50%, #3b82f6 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-leaf text-green-primary text-2xl mr-3"></i>
+                    <span class="font-bold text-xl text-gray-800">Green Intelligence</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#/home" class="text-gray-700 hover:text-green-primary transition">Home</a>
+                    <a href="#/agro-industry"
+                        class="text-gray-700 hover:text-green-primary transition">Agro-Industry</a>
+                    <a href="#/eco-tourism" class="text-gray-700 hover:text-green-primary transition">Eco-Tourism</a>
+                    <a href="#/ai-insights" class="text-gray-700 hover:text-green-primary transition">AI Insights</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button text-gray-700 hover:text-green-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#/home" class="block px-3 py-2 text-gray-700 hover:text-green-primary">Home</a>
+                <a href="#/agro-industry"
+                    class="block px-3 py-2 text-gray-700 hover:text-green-primary">Agro-Industry</a>
+                <a href="#/eco-tourism" class="block px-3 py-2 text-gray-700 hover:text-green-primary">Eco-Tourism</a>
+                <a href="#/ai-insights" class="block px-3 py-2 text-gray-700 hover:text-green-primary">AI Insights</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 animate-float">
+                <i class="fas fa-drone text-white text-6xl"></i>
+            </div>
+            <div class="absolute top-40 right-20 animate-pulse-slow">
+                <i class="fas fa-seedling text-white text-5xl"></i>
+            </div>
+            <div class="absolute bottom-20 left-1/4 animate-float" style="animation-delay: 1s;">
+                <i class="fas fa-microchip text-white text-4xl"></i>
+            </div>
+            <div class="absolute bottom-40 right-1/3 animate-pulse-slow" style="animation-delay: 2s;">
+                <i class="fas fa-leaf text-white text-5xl"></i>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                    Green Intelligence
+                </h1>
+                <p class="text-xl md:text-3xl text-green-100 mb-8">
+                    AI-powered Agro-Industry and Eco-Tourism Solutions
+                </p>
+                <p class="text-lg text-gray-200 mb-12 max-w-3xl mx-auto">
+                    Harnessing the power of Artificial Intelligence to create sustainable agriculture
+                    and eco-friendly tourism solutions for a greener future.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="document.getElementById('agro-industry').scrollIntoView({behavior: 'smooth'})"
+                        class="bg-white text-green-primary px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-tractor mr-2"></i>
+                        Explore AI Solutions
+                    </button>
+                    <button onclick="document.getElementById('eco-tourism').scrollIntoView({behavior: 'smooth'})"
+                        class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-green-primary transition transform hover:scale-105">
+                        <i class="fas fa-mountain mr-2"></i>
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Overview Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">How AI Transforms Industries</h2>
+                <p class="text-xl text-gray-600">Intelligent solutions for sustainable development</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center card-hover p-6 rounded-lg">
+                    <div
+                        class="bg-green-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-brain text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Machine Learning</h3>
+                    <p class="text-gray-600">Predictive analytics for crop yields and tourism patterns</p>
+                </div>
+
+                <div class="text-center card-hover p-6 rounded-lg">
+                    <div
+                        class="bg-tech-blue text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-satellite text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Remote Sensing</h3>
+                    <p class="text-gray-600">Real-time monitoring of agricultural and environmental data</p>
+                </div>
+
+                <div class="text-center card-hover p-6 rounded-lg">
+                    <div
+                        class="bg-earth-brown text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Analytics</h3>
+                    <p class="text-gray-600">Insights for sustainable resource management</p>
+                </div>
+
+                <div class="text-center card-hover p-6 rounded-lg">
+                    <div
+                        class="bg-green-dark text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-globe text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">IoT Integration</h3>
+                    <p class="text-gray-600">Smart sensors for precision agriculture and eco-monitoring</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agro-Industry Module -->
+    <section id="agro-industry" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Smart Farming Analytics</h2>
+                <p class="text-xl text-gray-600">AI-driven insights for precision agriculture</p>
+            </div>
+
+            <!-- Analytics Dashboard -->
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <!-- Crop Monitoring Cards -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Crop Monitoring Dashboard</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Yield Prediction Card -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-lg font-semibold text-gray-800">Yield Prediction</h4>
+                                <i class="fas fa-chart-line text-green-primary text-2xl"></i>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-3xl font-bold text-green-primary">2,450 kg</div>
+                                <div class="text-sm text-gray-600">Expected per hectare</div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Confidence Level</span>
+                                    <span class="font-semibold">94%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-primary h-2 rounded-full" style="width: 94%"></div>
+                                </div>
+                            </div>
+                            <div class="mt-4 text-sm text-green-600">
+                                <i class="fas fa-arrow-up mr-1"></i>
+                                12% increase from last season
+                            </div>
+                        </div>
+
+                        <!-- Soil Health Card -->
+                        <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-lg font-semibold text-gray-800">Soil Health</h4>
+                                <i class="fas fa-seedling text-earth-brown text-2xl"></i>
+                            </div>
+                            <div class="mb-4">
+                                <div class="text-3xl font-bold text-earth-brown">8.7/10</div>
+                                <div class="text-sm text-gray-600">Overall health score</div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">pH Level</span>
+                                    <span class="font-semibold">6.8</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Nitrogen</span>
+                                    <span class="font-semibold">Optimal</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Moisture</span>
+                                    <span class="font-semibold">68%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Recommendations Panel -->
+                <div class="lg:col-span-1">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">AI Recommendations</h3>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-green-primary pl-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-lightbulb text-green-primary mt-1 mr-3"></i>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">Irrigation Optimization</h5>
+                                        <p class="text-sm text-gray-600 mt-1">Reduce irrigation by 15% based on soil
+                                            moisture analysis.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-l-4 border-tech-blue pl-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-pills text-tech-blue mt-1 mr-3"></i>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">Nutrient Application</h5>
+                                        <p class="text-sm text-gray-600 mt-1">Apply potassium-rich fertilizer in 3 days.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eco-Tourism Module -->
+    <section id="eco-tourism" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Sustainable Eco-Tourism</h2>
+                <p class="text-xl text-gray-600">AI-curated destinations for responsible travel</p>
+            </div>
+
+            <!-- Destination Cards -->
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden card-hover">
+                    <div class="relative h-48 bg-gradient-to-br from-green-400 to-green-600">
+                        <img src="https://picsum.photos/seed/nature-park/400/300" alt="Nature Park"
+                            class="w-full h-full object-cover opacity-80">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                <i class="fas fa-leaf mr-1"></i> 9.5/10
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Emerald Valley Nature Park</h3>
+                        <p class="text-gray-600 mb-4">Pristine wilderness with guided eco-tours and wildlife
+                            conservation programs.</p>
+                        <button onclick="showDestinationDetails('emerald-valley')"
+                            class="w-full bg-green-primary text-white py-2 px-4 rounded-lg hover:bg-green-dark transition transform hover:scale-105">
+                            <i class="fas fa-search mr-2"></i>
+                            Explore Destination
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden card-hover">
+                    <div class="relative h-48 bg-gradient-to-br from-blue-400 to-blue-600">
+                        <img src="https://picsum.photos/seed/eco-resort/400/300" alt="Eco Resort"
+                            class="w-full h-full object-cover opacity-80">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-tech-blue text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                <i class="fas fa-star mr-1"></i> 9.2/10
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Azure Shores Eco Resort</h3>
+                        <p class="text-gray-600 mb-4">Luxury sustainable beachfront resort with marine conservation
+                            initiatives.</p>
+                        <button onclick="showDestinationDetails('azure-shores')"
+                            class="w-full bg-tech-blue text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition transform hover:scale-105">
+                            <i class="fas fa-search mr-2"></i>
+                            Explore Destination
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden card-hover">
+                    <div class="relative h-48 bg-gradient-to-br from-yellow-500 to-orange-600">
+                        <img src="https://picsum.photos/seed/protected-area/400/300" alt="Protected Area"
+                            class="w-full h-full object-cover opacity-80">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-earth-brown text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                <i class="fas fa-shield-alt mr-1"></i> 9.8/10
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Golden Highlands Reserve</h3>
+                        <p class="text-gray-600 mb-4">UNESCO-protected biodiversity hotspot with indigenous cultural
+                            experiences.</p>
+                        <button onclick="showDestinationDetails('golden-highlands')"
+                            class="w-full bg-earth-brown text-white py-2 px-4 rounded-lg hover:bg-amber-700 transition transform hover:scale-105">
+                            <i class="fas fa-search mr-2"></i>
+                            Explore Destination
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Insights Dashboard -->
+    <section id="ai-insights" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">AI Insights Dashboard</h2>
+                <p class="text-xl text-gray-600">Machine learning predictions and environmental impact analytics</p>
+            </div>
+
+            <!-- Key Metrics Overview -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Productivity Increase</p>
+                            <p class="text-3xl font-bold text-green-primary">+34%</p>
+                        </div>
+                        <div class="bg-green-primary bg-opacity-10 p-3 rounded-lg">
+                            <i class="fas fa-chart-line text-green-primary text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Carbon Reduction</p>
+                            <p class="text-3xl font-bold text-tech-blue">-28%</p>
+                        </div>
+                        <div class="bg-tech-blue bg-opacity-10 p-3 rounded-lg">
+                            <i class="fas fa-leaf text-tech-blue text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">AI Accuracy</p>
+                            <p class="text-3xl font-bold text-earth-brown">96.2%</p>
+                        </div>
+                        <div class="bg-earth-brown bg-opacity-10 p-3 rounded-lg">
+                            <i class="fas fa-brain text-earth-brown text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Cost Savings</p>
+                            <p class="text-3xl font-bold text-green-dark">$2.4M</p>
+                        </div>
+                        <div class="bg-green-dark bg-opacity-10 p-3 rounded-lg">
+                            <i class="fas fa-piggy-bank text-green-dark text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center items-center mb-4">
+                    <i class="fas fa-leaf text-green-primary text-2xl mr-3"></i>
+                    <span class="font-bold text-xl">ICT Roadshow 2024</span>
+                </div>
+                <p class="text-gray-300 mb-2">"Smart Technology for a Greener Future"</p>
+                <p class="text-sm text-gray-400">© 2024 Green Intelligence. Transforming Agriculture & Tourism with AI
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Destination Details Modal -->
+    <div id="destinationModal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b p-6 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-2xl font-bold text-gray-800"></h3>
+                <button onclick="closeDestinationModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="p-6">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Simple Client-Side Router
+        class Router {
+            constructor() {
+                this.routes = {};
+                this.currentRoute = null;
+                this.init();
+            }
+
+            init() {
+                // Handle initial page load
+                window.addEventListener('load', () => {
+                    this.handleRoute();
+                });
+
+                // Handle browser back/forward
+                window.addEventListener('popstate', () => {
+                    this.handleRoute();
+                });
+
+                // Handle navigation clicks
+                document.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#/')) {
+                        e.preventDefault();
+                        const path = e.target.getAttribute('href').substring(1);
+                        this.navigate(path);
+                    }
+                });
+            }
+
+            route(path, handler) {
+                this.routes[path] = handler;
+            }
+
+            navigate(path) {
+                window.history.pushState({}, '', path);
+                this.handleRoute();
+            }
+
+            handleRoute() {
+                const path = window.location.hash.slice(1) || 'home';
+
+                if (this.routes[path]) {
+                    this.routes[path]();
+                    this.currentRoute = path;
+                } else {
+                    // Default to home if route not found
+                    this.routes['home']();
+                    this.currentRoute = 'home';
+                }
+
+                this.updateActiveNavigation();
+            }
+
+            updateActiveNavigation() {
+                // Update navigation active states
+                document.querySelectorAll('nav a').forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === `#${this.currentRoute}` ||
+                        (this.currentRoute === 'home' && href === '#home') ||
+                        (this.currentRoute.startsWith('agro-industry') && href === '#agro-industry') ||
+                        (this.currentRoute.startsWith('eco-tourism') && href === '#eco-tourism') ||
+                        (this.currentRoute.startsWith('ai-insights') && href === '#ai-insights')) {
+                        link.classList.add('text-green-primary', 'font-semibold');
+                        link.classList.remove('text-gray-700');
+                    } else {
+                        link.classList.remove('text-green-primary', 'font-semibold');
+                        link.classList.add('text-gray-700');
+                    }
+                });
+            }
+        }
+
+        // Initialize router
+        const router = new Router();
+
+        // Define routes
+        router.route('home', () => {
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        router.route('agro-industry', () => {
+            document.getElementById('agro-industry').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        router.route('eco-tourism', () => {
+            document.getElementById('eco-tourism').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        router.route('ai-insights', () => {
+            document.getElementById('ai-insights').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Destination detail routes
+        router.route('destination/emerald-valley', () => {
+            document.getElementById('eco-tourism').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => showDestinationDetails('emerald-valley'), 800);
+        });
+
+        router.route('destination/azure-shores', () => {
+            document.getElementById('eco-tourism').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => showDestinationDetails('azure-shores'), 800);
+        });
+
+        router.route('destination/golden-highlands', () => {
+            document.getElementById('eco-tourism').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => showDestinationDetails('golden-highlands'), 800);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function () {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Handle hash links (for backward compatibility)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            if (!anchor.getAttribute('href').startsWith('#/')) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+
+        // Destination Details Function
+        function showDestinationDetails(destination) {
+            const modal = document.getElementById('destinationModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+
+            const destinations = {
+                'emerald-valley': {
+                    title: 'Emerald Valley Nature Park',
+                    content: `
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <img src="https://picsum.photos/seed/emerald-valley-large/600/400" alt="Emerald Valley" class="w-full rounded-lg mb-4">
+                                <div class="grid grid-cols-3 gap-4 text-center">
+                                    <div class="bg-green-50 p-3 rounded">
+                                        <i class="fas fa-tree text-green-primary text-2xl mb-2"></i>
+                                        <div class="font-semibold">200+ Species</div>
+                                        <div class="text-sm text-gray-600">Protected</div>
+                                    </div>
+                                    <div class="bg-blue-50 p-3 rounded">
+                                        <i class="fas fa-hiking text-tech-blue text-2xl mb-2"></i>
+                                        <div class="font-semibold">15 Trails</div>
+                                        <div class="text-sm text-gray-600">Eco-Hiking</div>
+                                    </div>
+                                    <div class="bg-yellow-50 p-3 rounded">
+                                        <i class="fas fa-camera text-yellow-600 text-2xl mb-2"></i>
+                                        <div class="font-semibold">Photo Spots</div>
+                                        <div class="text-sm text-gray-600">Scenic Views</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4">Discover Nature's Paradise</h4>
+                                <p class="text-gray-600 mb-4">Emerald Valley Nature Park spans 5,000 hectares of pristine wilderness, featuring ancient rainforests, cascading waterfalls, and diverse wildlife habitats.</p>
+                                
+                                <h5 class="font-semibold mb-2">AI-Powered Features:</h5>
+                                <ul class="list-disc list-inside text-gray-600 mb-4">
+                                    <li>Wildlife sighting predictions using AI algorithms</li>
+                                    <li>Optimal trail recommendations based on weather and crowd data</li>
+                                    <li>Real-time biodiversity monitoring through smart sensors</li>
+                                    <li>Personalized eco-tour itineraries</li>
+                                </ul>
+                                
+                                <h5 class="font-semibold mb-2">Sustainability Initiatives:</h5>
+                                <ul class="list-disc list-inside text-gray-600 mb-4">
+                                    <li>Carbon-neutral operations since 2020</li>
+                                    <li>100% renewable energy usage</li>
+                                    <li>Plastic-free zone with water refill stations</li>
+                                    <li>Local community employment program</li>
+                                </ul>
+                                
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-semibold">AI Sustainability Score:</span>
+                                        <span class="text-green-primary font-bold">95/100</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-green-primary h-2 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'azure-shores': {
+                    title: 'Azure Shores Eco Resort',
+                    content: `
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <img src="https://picsum.photos/seed/azure-shores-large/600/400" alt="Azure Shores" class="w-full rounded-lg mb-4">
+                                <div class="grid grid-cols-3 gap-4 text-center">
+                                    <div class="bg-blue-50 p-3 rounded">
+                                        <i class="fas fa-water text-tech-blue text-2xl mb-2"></i>
+                                        <div class="font-semibold">Coral Reef</div>
+                                        <div class="text-sm text-gray-600">Protected</div>
+                                    </div>
+                                    <div class="bg-green-50 p-3 rounded">
+                                        <i class="fas fa-solar-panel text-green-primary text-2xl mb-2"></i>
+                                        <div class="font-semibold">Solar Power</div>
+                                        <div class="text-sm text-gray-600">100%</div>
+                                    </div>
+                                    <div class="bg-yellow-50 p-3 rounded">
+                                        <i class="fas fa-star text-yellow-600 text-2xl mb-2"></i>
+                                        <div class="font-semibold">5-Star</div>
+                                        <div class="text-sm text-gray-600">Eco-Luxury</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4">Luxury Meets Sustainability</h4>
+                                <p class="text-gray-600 mb-4">Azure Shores Eco Resort combines luxury accommodation with groundbreaking environmental conservation, featuring 50 villas powered entirely by renewable energy.</p>
+                                
+                                <h5 class="font-semibold mb-2">AI-Enhanced Guest Experience:</h5>
+                                <ul class="list-disc list-inside text-gray-600 mb-4">
+                                    <li>Smart energy management reducing consumption by 40%</li>
+                                    <li>AI-optimized water recycling and desalination</li>
+                                    <li>Personalized marine activity recommendations</li>
+                                    <li>Predictive maintenance for resort systems</li>
+                                </ul>
+                                
+                                <h5 class="font-semibold mb-2">Marine Conservation:</h5>
+                                <ul class="list-disc list-inside text-gray-600 mb-4">
+                                    <li>Active coral reef restoration program</li>
+                                    <li>Sea turtle protection and monitoring</li>
+                                    <li>Sustainable fishing partnerships</li>
+                                    <li>Marine biology research center</li>
+                                </ul>
+                                
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-semibold">AI Sustainability Score:</span>
+                                        <span class="text-tech-blue font-bold">92/100</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-tech-blue h-2 rounded-full" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'golden-highlands': {
+                    title: 'Golden Highlands Reserve',
+                    content: `
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <img src="https://picsum.photos/seed/golden-highlands-large/600/400" alt="Golden Highlands" class="w-full rounded-lg mb-4">
+                                <div class="grid grid-cols-3 gap-4 text-center">
+                                    <div class="bg-yellow-50 p-3 rounded">
+                                        <i class="fas fa-mountain text-earth-brown text-2xl mb-2"></i>
+                                        <div class="font-semibold">2,500m</div>
+                                        <div class="text-sm text-gray-600">Elevation</div>
+                                    </div>
+                                    <div class="bg-green-50 p-3 rounded">
+                                        <i class="fas fa-feather text-green-primary text-2xl mb-2"></i>
+                                        <div class="font-semibold">150 Birds</div>
+                                        <div class="text-sm text-gray-600">Endemic</div>
+                                    </div>
+                                    <div class="bg-purple-50 p-3 rounded">
+                                        <i class="fas fa-landmark text-purple-600 text-2xl mb-2"></i>
+                                        <div class="font-semibold">UNESCO</div>
+                                        <div class="text-sm text-gray-600">Heritage</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4">Biodiversity Hotspot</h4>
+                                <p class="text-gray-600 mb-4">Golden Highlands Reserve protects 10,000 hectares of critical cloud forest habitat, home to countless endemic species and indigenous cultural sites.</p>
+                                
+                                <h5 class="font-semibold mb-2">AI Conservation Technology:</h5>
+                                <ul class="list-disc list-inside text-gray-600 mb-4">
+                                    <li>Drone-based wildlife monitoring and anti-poaching</li>
+                                    <li>Predictive climate modeling for species protection</li>
+                                    <li>Smart habitat restoration planning</li>
+                                    <li>Real-time ecosystem health tracking</li>
+                                </ul>
+                                
+                                <h5 class="font-semibold mb-2">Cultural Preservation:</h5>
+                                <ul class="list-disc list-inside text-gray-600 mb-4">
+                                    <li>Indigenous community partnership programs</li>
+                                    <li>Traditional knowledge documentation</li>
+                                    <li>Cultural heritage site protection</li>
+                                    <li>Sustainable eco-tourism benefits sharing</li>
+                                </ul>
+                                
+                                <div class="bg-yellow-50 p-4 rounded-lg">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-semibold">AI Sustainability Score:</span>
+                                        <span class="text-earth-brown font-bold">98/100</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-earth-brown h-2 rounded-full" style="width: 98%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+
+            const destination = destinations[destination];
+            if (destination) {
+                modalTitle.textContent = destination.title;
+                modalContent.innerHTML = destination.content;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeDestinationModal() {
+            const modal = document.getElementById('destinationModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('destinationModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeDestinationModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
