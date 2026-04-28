@@ -27,3 +27,7 @@ yarn-error.log
 !storage/framework/testing/.gitignore
 !storage/framework/views/.gitignore
 !storage/logs/.gitignore
+
+# Bootstrap cache files (regenerated on deploy)
+/bootstrap/cache/packages.php
+/bootstrap/cache/services.php
