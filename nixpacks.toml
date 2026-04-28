@@ -1,0 +1,16 @@
+# Nixpacks configuration for Railway
+# https://nixpacks.com/docs/providers/php
+
+[phases.setup]
+# PHP version
+nixPkgs = ["php81", "php81Extensions.sqlite3", "composer"]
+
+[phases.build]
+cmds = ["composer install --no-dev --optimize-autoloader"]
+
+[start]
+cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
+
+[deploy]
+healthcheckPath = "/"
+healthcheckTimeout = 30
